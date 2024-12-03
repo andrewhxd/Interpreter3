@@ -28,8 +28,11 @@ public class Environment {
     // Assign - Replace the value of an existing variable
     void assign(Token name, Object value) {
         // TODO: If the variable exists, then we can assign, otherwise we have an error
-
+        if (variables.containsKey(name)) {
+            variables.replace(name.text, value);
+        }
         // TODO: If we don't have it in our current environment, try assigning in the enclosing environment
+        enclosing.assign(name, value);
 
         // Exit on error if we get this far since the variable is undefined
         System.err.println("Undefined variable: " + name.text);
