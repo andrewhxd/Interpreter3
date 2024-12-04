@@ -37,6 +37,9 @@ public class SpartieInterpreter {
     // Statement Implementation
     private void interpretWhileStatement(Statement.WhileStatement statement) {
         // TODO: Evaluate the while statement based on the condition
+        while (isTrue(interpret(statement.condition))) {
+            interpret(statement.body);
+        }
     }
 
     private void interpretIfStatement(Statement.IfStatement statement) {
