@@ -35,7 +35,7 @@ public class Environment {
     // Assign - Replace the value of an existing variable
     void assign(Token name, Object value) {
         // TODO: If the variable exists, then we can assign, otherwise we have an error
-        if (variables.containsKey(name)) {
+        if (variables.containsKey(name.text)) {
             variables.replace(name.text, value);
             return;
         }
