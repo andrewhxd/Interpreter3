@@ -44,6 +44,13 @@ public class SpartieInterpreter {
 
     private void interpretIfStatement(Statement.IfStatement statement) {
         // TODO: Evaluate the condition and then execute the appropriate branch
+        Expression condition = statement.condition;
+
+        if (isTrue(condition)) {
+            interpret(statement.thenBranch);
+        } else if (statement.elseBranch != null) {
+            interpret(statement.elseBranch);
+        }
     }
 
     private void interpretBlockStatement(Statement.BlockStatement statement) {
