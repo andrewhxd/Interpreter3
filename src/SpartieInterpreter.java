@@ -44,7 +44,7 @@ public class SpartieInterpreter {
 
     private void interpretIfStatement(Statement.IfStatement statement) {
         // TODO: Evaluate the condition and then execute the appropriate branch
-        Object condition = statement.condition;
+        Object condition = interpret(statement.condition);
 
         if (isTrue(condition)) {
             interpret(statement.thenBranch);
