@@ -44,7 +44,7 @@ public class SpartieInterpreter {
 
     private void interpretIfStatement(Statement.IfStatement statement) {
         // TODO: Evaluate the condition and then execute the appropriate branch
-        Expression condition = statement.condition;
+        Object condition = statement.condition;
 
         if (isTrue(condition)) {
             interpret(statement.thenBranch);
@@ -113,12 +113,9 @@ public class SpartieInterpreter {
     private Object interpretAssign(Expression.AssignmentExpression expression) {
         // TODO: Interpret the expression for the assignment and then assign it to our global environment,
         //  then return the value
-
-
-
-
-
-        return null;
+        Object value = interpret(expression.value);
+        globalEnvironment.assign(expression.name, value);
+        return value;
     }
 
     private Object interpretVariable(Expression.VariableExpression expression) {
