@@ -37,9 +37,13 @@ public class Environment {
         // TODO: If the variable exists, then we can assign, otherwise we have an error
         if (variables.containsKey(name)) {
             variables.replace(name.text, value);
+            return;
         }
         // TODO: If we don't have it in our current environment, try assigning in the enclosing environment
-        enclosing.assign(name, value);
+        if (enclosing != null) {
+            enclosing.assign(name, value);
+            return;
+        }
 
         // Exit on error if we get this far since the variable is undefined
         System.err.println("Undefined variable: " + name.text);
