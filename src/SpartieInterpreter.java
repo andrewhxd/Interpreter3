@@ -120,6 +120,8 @@ public class SpartieInterpreter {
 
     private Object interpretVariable(Expression.VariableExpression expression) {
         // TODO: Return the value from our global environment
+        Token name = expression.name;
+        globalEnvironment.get(name.text);
         return null;
     }
 
